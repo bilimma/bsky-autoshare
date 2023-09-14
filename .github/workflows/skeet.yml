@@ -24,3 +24,9 @@ jobs:
         BSKY_USERNAME: ${{secrets.BSKY_USERNAME}}
         BSKY_PASSWORD: ${{secrets.BSKY_PASSWORD}}
         FEED_URL: ${{secrets.FEED_URL}}
+    - name: Commit database
+      run: |
+            git config --global user.name 'Emre Yilmaz'
+            git config --global user.email 'z@emre.xyz'
+            git commit -am "Database Updated!"
+            git push
