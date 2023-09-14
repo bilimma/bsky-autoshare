@@ -5,6 +5,7 @@ Just add script as cron and it will post your posts from rss to bsky.
 
 create skeet in every hour
 
-> 0 * * * * python3 main.py >/dev/null 2>&1
+its running in github actions.
 
 
+[![Autoshare Status](https://github.com/bilimma/bsky-autoshare/actions/workflows/skeet.yml/badge.svg)](https://github.com/bilimma/bsky-autoshare/actions/workflows/skeet.yml)
