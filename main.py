@@ -4,6 +4,7 @@ import sqlite3
 import sys
 import time
 import os 
+import re
 
 def createdb(cur):
     cur.execute('''
@@ -22,11 +23,14 @@ CREATE TABLE shared_contents (
 def sendSkeetAndSave(cur,entry):
     client = Client()
     client.login(os.environ.get('BSKY_USERNAME'), os.environ.get('BSKY_PASSWORD'))
-    skeet= entry['title']
+    title= entry['title']
+    description = re.sub('<[^<]+?>', '', entry['description'])
+    
+
     embed_external = models.AppBskyEmbedExternal.Main(
                 external=models.AppBskyEmbedExternal.External(
-                        title=entry['title'],
-                        description=entry['description'],
+                        title=title,
+                        description=description,
                         uri=entry['link']
                        # thumb=models.blob_ref.BlobRef(
                        #     mime_type="image/jpeg",
