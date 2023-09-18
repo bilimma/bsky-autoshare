@@ -48,7 +48,7 @@ def sendSkeetAndSave(cur,entry):
             collection=models.ids.AppBskyFeedPost,
             record=models.AppBskyFeedPost.Main(
                 created_at=client.get_current_time_iso(),
-                text=skeet,
+                text=title,
                 #facets=facets
                 embed=embed_external
                 )
